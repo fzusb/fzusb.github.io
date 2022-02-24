@@ -357,7 +357,21 @@
             return null;
         }
         $.getScript("outer.js", function () {
+        function init() {
+            if (arguments.callee.done) return;
+            arguments.callee.done = true;
+            if (timer) clearInterval(timer);
+            //...
+        }
 
+        //判断浏览器
+        //针对Mozilla/Opera9
+        if (document.addEventListener) {
+            document.addEventListener('DOMContentLoaded', init, false)
+        }
+        $(document).ready(function () {
+                //...
+            })
         });
         function inBtn(){
             var val1 = prompt("请输入姓名", "格桑朗杰");
