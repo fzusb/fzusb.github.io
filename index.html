@@ -358,14 +358,13 @@
         }
 
         $(function () {
-            var val1 = getParam("userName");
-            var val2 = getParam("deptName");
-            var val3 = getParam("marqueeStr");
-            $("#userName").text("姓名：高朗杰" );
-            $("#deptName").text("部门：外国语学院");
-            $("#marqueeStr").html("法治");
+        var val1 = prompt("请输入姓名", "格桑朗杰");;
+        var val2 = prompt("请输入部门", "外国语学院");
+        var val3 = prompt("请输入", "富强");
+        $("#userName").text("姓名：" + val1);
+        $("#deptName").text("部门：" + val2);
+        $("#marqueeStr").html(val3);
         });
-
     </script>
 </head>
 <body class="sweep_bg">
