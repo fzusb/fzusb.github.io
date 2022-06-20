@@ -1,0 +1,72 @@
+@media screen and (min-width: 750px) {
+    html {
+        font-size: 31.25px!important;
+    }
+}
+body {
+    min-width: 320px;
+    max-width: 750px;
+    width: 24rem;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+div {
+    box-sizing: border-box;
+}
+span {
+    position: absolute;
+    color: gray;
+    font-size: 1rem;
+}
+input:focus{
+    outline:none;
+    }
+.main {
+    background-color: #fefefe;
+    padding-top: 14.4rem;
+}
+.main div{
+    width: 18.88rem;
+    height: 3.5rem;
+    margin: 0 auto;
+    background-color: #f2f3f6;
+    border-radius: 2.4rem;
+    padding: .32rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.main div:nth-child(1) {
+    margin-bottom: .96rem;
+}
+.main div:nth-child(2) {
+    margin-bottom: .96rem;
+}
+.main div input {
+    background-color: rgba(255,255,255,0.1);
+    font-size: 1.4rem;
+    border: none;
+    width: 80%;
+    flex: 0.5;
+}
+.main ul {
+    margin: 0 auto;
+    margin-top: 4.32rem;
+    text-align: center;
+}
+.main .into img {
+    width: 5.504rem;
+    height: 5.376rem;
+}
+.tt {
+    height: 100px;
+}

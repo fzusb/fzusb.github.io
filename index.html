@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>福州大学一码通</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="fzusb.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async=async src="https://www.googletagmanager.com/gtag/js?id=UA-209341714-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-209341714-1');
+    </script>
+</head>
+<body>
+    <span>外院第一GAY：郑鸿杰</span>
+    <div class="main">
+        <div><input type="text" id="ipt1" placeholder="姓名" /></div>
+        <div><input type="text" id="ipt2" placeholder="学院" /></div>
+        <div><input type="text" id="ipt3" placeholder="Homelander的价值观" /></div>
+        <ul class="into">
+            <img src="zhj.png" alt="" />
+        </ul>
+    </div>
+    <script>
+        var img = document.querySelector('.into');
+        var ipt1 = document.querySelector('#ipt1');
+        var ipt2 = document.querySelector('#ipt2');
+        var ipt3 = document.querySelector('#ipt3')
+        img.addEventListener('click', function () {
+            val_1 = ipt1.value;
+            val_2 = ipt2.value;
+            val_3 = ipt3.value;
+            var val1 = localStorage.setItem('name', val_1);
+            var val2 = localStorage.setItem('study', val_2);
+            var val3 = localStorage.setItem('name2', val_3);
+            var b = localStorage.getItem('name')
+            location.href = 'login.html'
+        })
+    </script>
+</body>
+</html>
