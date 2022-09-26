@@ -1,49 +1,138 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>福州大学一码通</title>
-    <link rel="stylesheet" href="normalize.css" />
-    <link rel="stylesheet" href="index.css" />
-    <script src="fzusb.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async=async src="https://www.googletagmanager.com/gtag/js?id=UA-209341714-1"></script>
+<html>
+  <head>
+    <style>
+        body, html, div, video {
+            margin: 0;
+            padding: 0;
+            background-size: 100%;
+        }
+      #root {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        width: 100vw;
+      }
+      #root video {
+        width: 100%;
+        /* height: 100%; */
+        object-fit: contain;
+      }
+      #time-container {
+        position: absolute;
+        top: 42vw;
+        left: 0;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+        #time-container .time-string {
+            position: absolute;
+            top: 9vw;
+            left: 18vw;
+            width: 20vw;
+            height: 20vw;
+            z-index: 1;
+            width: 0vw;
+            
+            min-height: 14vw;
+            background-color: #fff;
+            text-align: center;
+            font-size: 6vw;
+            font-weight: 600;
+            color: #222;
+            white-space: nowrap;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+      #vaccine-container {
+        position: absolute;
+        top: 128.9vw;
+        left: 6.3vw;
+        width: 41.4vw;
+        height: 29.4vw;
+        z-index: 1;
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        background-image: url();
+        background-size: contain;
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+      }
+      #vaccine-container .vaccine-time {
+        position: absolute;
+        width: 100%;
+        z-index: 2;
+        min-height: 6vw;
+        bottom: 1vw;
+        left: 0;
+        background-color: transparent;
+        text-align: center;
+        font-size: 3vw;
+        font-weight: 400;
+        color: #f2f2f2;
+        white-space: nowrap;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+      function fullscreen() {
+        document.documentElement.requestFullscreen()
+      }
+      const formatterDate = (yearFlag) => {
+        const zero = (newValue) => `0${newValue}`.slice(-2);
+        const date = new Date();
+        const month = zero(date.getMonth() + 1);
+        const day = zero(date.getDate());
+        const hour = zero(date.getHours());
+        const minite = zero(date.getMinutes());
+        const seconds = zero(date.getSeconds());
+       
+          let yeardate = new Date(date.getTime());
+          const year = yeardate.getFullYear()
+          const ymonth = zero(yeardate.getMonth() + 1);
+          const yday = zero(yeardate.getDate());
+          return `${year}-${ymonth}-${yday}\xa0\xa0\xa0\xa0\xa0\xa0\xa0${hour}:${minite}:${seconds}`;
+      
+         
+      };
 
-        gtag('config', 'UA-209341714-1');
+      let timeoutCount = 0
+      const changeTime = () => {
+        try {
+          const timeStrDiv = document.getElementsByClassName('time-string')[0]
+          timeStrDiv.innerHTML = formatterDate()
+        } catch(err) {
+          console.log(err);
+        }
+        timeoutCount = timeoutCount + 1
+        timeoutCount < 1000 && setTimeout(changeTime, 1000)
+      }
+      const setVaccineTime = () => {
+        try {
+          const timeStrDiv = document.getElementsByClassName('vaccine-time')[0]
+          timeStrDiv.innerHTML = formatterDate(true)
+        } catch(err) {
+          console.log(err);
+        }
+
+      }
+      // window.onload = () => {
+      //   setVaccineTime();
+      //   changeTime();
+      // }
+      setTimeout(() => {
+        setVaccineTime();
+        changeTime();
+      }, 1);
     </script>
-</head>
-<body>
-    <span>     外院第一渣男：郑鸿杰
-               点击郑鸿杰照片进入</span>
-    <div class="main">
-        <div><input type="text" id="ipt1" placeholder="姓名" /></div>
-        <div><input type="text" id="ipt2" placeholder="学院" /></div>
-        <div><input type="text" id="ipt3" placeholder="Homelander的价值观" /></div>
-        <ul class="into">
-            <img src="zhj.png" alt="" />
-        </ul>
-    </div>
-    <script>
-        var img = document.querySelector('.into');
-        var ipt1 = document.querySelector('#ipt1');
-        var ipt2 = document.querySelector('#ipt2');
-        var ipt3 = document.querySelector('#ipt3')
-        img.addEventListener('click', function () {
-            val_1 = ipt1.value;
-            val_2 = ipt2.value;
-            val_3 = ipt3.value;
-            var val1 = localStorage.setItem('name', val_1);
-            var val2 = localStorage.setItem('study', val_2);
-            var val3 = localStorage.setItem('name2', val_3);
-            var b = localStorage.getItem('name')
-            location.href = 'login.html'
-        })
-    </script>
-</body>
+  </head>
+  <body background="ce6d58a1f549977418f6b9b8579283c.png" >
+
+      <div id="time-container">
+          <div class="time-string">
+              01-04 12:59:59
+          </div>
+      </div>
+  </body>
 </html>
